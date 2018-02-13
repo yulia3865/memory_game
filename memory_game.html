@@ -35,10 +35,10 @@
         </style>
 
         <script>
-            var memory_array = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L'];
-            var memory_values = [];
-            var memory_tile_ids = [];
-            var tiles_flipped = 0;
+            const memory_array = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L'];
+            let memory_values = [];
+            let memory_tile_ids = [];
+            let tiles_flipped = 0;
             Array.prototype.memory_tile_shuffle = function() {
                 var i = this.length, j, temp;
                 while(--i > 0) {
@@ -49,7 +49,7 @@
                 }
             }
 
-            function newBoard() {
+            const newBoard = () => {
                 tiles_flipped = 0;
                 var output = '';
                 memory_array.memory_tile_shuffle(); 
@@ -59,7 +59,7 @@
                 document.getElementById('memory_board').innerHTML = output;
             }
 
-                function memoryFlipTile(tile,val) {
+                const memoryFlipTile = (tile,val) => {
                     if(tile.innerHTML == "" && memory_values.length < 2) {
                         tile.style.background = '#FFF'; 
                         tile.innerHTML = val; 
